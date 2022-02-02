@@ -1,0 +1,28 @@
+Juan Mateo Mejia:2154840		Julian Adolfo Peña: 2146251
+
+PUNTO 2 
+
+-Posibles condiciones de carrera:
+
+	Cada vez que las serpientes llegan a un recurso se mira si y tiene acceso a cada uno de los elementos del 
+	tablero, por ejemplo si choca contra un muro o si puede comer un raton, si cogio un item de teletranportacion
+	o de boost.
+
+-Uso inadecuado de colecciones, considerando su manejo concurrente:
+	Cuando la velocidad aumenta y dos o mas serpientes intentan comer el mismo item, se genera un error ya que 
+	ambas intentan acceder al mismo item y al una ser ocupada por la otra, no se permite su modificacion
+
+-Uso innecesario de esperas activas:
+	La serpiente solo deberia verificar si en la posicion de su cabeza hay algun objeto, y no hacer la verificacion
+	fuera de este punto y a destiempo, esto podia hacer que una vez terminado el juego se intentara acceder 
+	a un objeto al cual ya no se tiene acceso.
+
+PUNTO 3
+
+	-Con el sincronized podemos evitar que se acceda varias veces un recurso, haciendo que el que primero acceda 
+	tenga el poder sobre el recurso y los demas esperen a ver que sucede con este.
+
+	-Modificando el codigo y haciendo que los ciclos se terminen cuando deben, podemos evitar que se busque en 
+	otras partes del tablero distintos objetos o se acceda varias veces al mismo objeto.
+	
+	
